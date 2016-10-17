@@ -5,6 +5,7 @@ if (!defined('ABSPATH')) {
 }
 
 class EM_ImpExpImport {
+	protected $locations = false;
 
 	protected $plugin;
 	protected $menuPage;
@@ -434,6 +435,9 @@ class EM_ImpExpImport {
 						$location->location_longitude = $data['location_longitude'];
 						self::maybeSetCoordinates($location);
 						$location->save();
+						
+						//force reload of locations
+						$this->locations = false; 
 					}
 				}
 
@@ -630,10 +634,9 @@ class EM_ImpExpImport {
 	* @param string $location_name
 	* @return EM_Location
 	*/
-	protected static function getLocationByName($location_name) {
-		static $locations = false;
+	protected function getLocationByName($location_name) {
 
-		if ($locations === false) {
+		if ($this->locations === false) {
 			global $wpdb;
 			$sql = "
 				select location_name, location_id
@@ -642,15 +645,15 @@ class EM_ImpExpImport {
 			";
 			$rows = $wpdb->get_results($sql);
 
-			$locations = array();
+			$this->locations = array();
 			foreach ($rows as $row) {
-				$locations[strtolower($row->location_name)] = (int) $row->location_id;
+				$this->locations[strtolower($row->location_name)] = (int) $row->location_id;
 			}
 		}
 
 		$location_name = strtolower($location_name);
 
-		$location = empty($locations[$location_name]) ? false : new EM_Location($locations[$location_name]);
+		$location = empty($this->locations[$location_name]) ? false : new EM_Location($this->locations[$location_name]);
 
 		return $location;
 	}
