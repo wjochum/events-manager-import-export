@@ -3,7 +3,7 @@
 Plugin Name: Events Manager Import Export (Network Support)
 Plugin URI: https://github.com/wjochum/events-manager-import-export
 Description: Import and Export function for Events Manager (Network Support)
-Version: 0.0.13
+Version: 0.0.14
 Author: WebAware, Wolfgang Jochum
 Author URI: http://webaware.com.au/
 */
@@ -33,7 +33,7 @@ if (!defined('ABSPATH')) {
 define('EM_IMPEXP_PLUGIN_FILE', __FILE__);
 define('EM_IMPEXP_PLUGIN_ROOT', dirname(__FILE__) . '/');
 define('EM_IMPEXP_PLUGIN_NAME', basename(dirname(__FILE__)) . '/' . basename(__FILE__));
-define('EM_IMPEXP_PLUGIN_VERSION', '0.0.13');
+define('EM_IMPEXP_PLUGIN_VERSION', '0.0.14');
 
 // instantiate the plug-in
 require EM_IMPEXP_PLUGIN_ROOT . 'includes/class.EM_ImpExpPlugin.php';

@@ -16,8 +16,8 @@ if (!defined('ABSPATH')) {
 		<tr>
 			<th>File format:</th>
 			<td>
-				<label><input type="radio" name="imp_format" id="imp_format_csv" value="csv" checked="checked" /> CSV in Events Manager Import/Export format</label>
-				<label><input type="radio" name="imp_format" id="imp_format_xcal" value="xCal" /> xCal / Events Manager</label><br />
+				<label><input type="radio" name="imp_format" id="imp_format_csv" value="csv" checked="checked" /> CSV in Events Manager Import/Export format</label><br />
+				<label><input type="radio" name="imp_format" id="imp_format_xcal" value="xCal" /> xCal / Events Manager</label>
 			</td>
 		</tr>
 
