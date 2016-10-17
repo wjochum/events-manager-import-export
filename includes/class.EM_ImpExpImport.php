@@ -164,6 +164,7 @@ class EM_ImpExpImport {
 								if (!$location) {
 									// must create a new location object
 									$location = new EM_Location();
+									$location->blog_id = get_current_blog_id(); 	// add blog_id
 									$location->location_name      = $data['x-location_name'];
 									$location->location_address   = $data['x-location_address'];
 									$location->location_town      = $data['x-location_town'];
@@ -194,7 +195,7 @@ class EM_ImpExpImport {
 								// must create a new event
 								$event = new EM_Event();
 							}
-							$event->post_id = $data['uid'];	// post_id is now NOT NULL
+							//$event->post_id = $data['uid'];	// post_id is now NOT NULL - removed since using uid is not working as expected -> created duplicate entries in table
 							$event->location_id = $location ? $location->location_id : 0;
 							$event->event_attributes['em_impexp_uid'] = $data['uid'];
 							$event->event_attributes['em_impexp_url'] = $data['url'];
@@ -217,6 +218,8 @@ class EM_ImpExpImport {
 							foreach ($attrs as $attrName => $value) {
 								$event->event_attributes[$attrName] = $value;
 							}
+
+							$event->blog_id = get_current_blog_id();	// add blog_id
 
 							// TODO: recurring events
 							switch ($data['freq']) {
@@ -424,6 +427,7 @@ class EM_ImpExpImport {
 					if (!$location) {
 						// must create a new location object
 						$location = new EM_Location();
+						$location->blog_id = get_current_blog_id(); 	// add blog_id
 						$location->location_name      = empty($data['location_name']) ? self::fudgeLocationName($data) : $data['location_name'];
 						$location->location_address   = empty($data['location_address']) ? $data['location_name'] : $data['location_address'];
 						$location->location_town      = $data['location_town'];
@@ -457,7 +461,7 @@ class EM_ImpExpImport {
 					// must create a new event
 					$event = new EM_Event();
 				}
-				$event->post_id = $data['uid']; // post_id is now NOT NULL
+				//$event->post_id = $data['uid']; // post_id is now NOT NULL - removed since using uid is not working as expected -> created duplicate entries in table
 				$event->location_id = $location ? $location->location_id : 0;
 				$event->event_attributes['em_impexp_uid'] = $data['uid'];
 				$event->event_attributes['em_impexp_url'] = $data['url'];
@@ -493,6 +497,8 @@ class EM_ImpExpImport {
 				foreach ($attrs as $attrName => $value) {
 					$event->event_attributes[$attrName] = $value;
 				}
+				
+				$event->blog_id = get_current_blog_id();	// add blog_id
 
 				// TODO: recurring events
 				switch ($data['freq']) {
@@ -729,7 +735,7 @@ class EM_ImpExpImport {
 	* @param array $args assoc. array of original search arguments
 	* @return array
 	*/
-	public static function filterEventArgs($filtered, $args) {
+	public static function filterEventArgs($filtered, $args) {		
 		if (isset($args['em_impexp_uid'])) {
 			$filtered['em_impexp_uid'] = $args['em_impexp_uid'];
 		}
