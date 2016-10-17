@@ -1,6 +1,13 @@
-# Events Manager Import Export
+# Events Manager Import Export (Network Support Fork)
 
 ## Changelog
+
+### 0.0.12, 2016-10-17
+
+* fix bug with update event in network mode
+* fix bug with post_id set to uid creates duplicates of imported event in tables  
+* fix bug multiple locations created when importing multiple events with the same new location
+
 
 ### 0.0.11, 2016-02-09
 

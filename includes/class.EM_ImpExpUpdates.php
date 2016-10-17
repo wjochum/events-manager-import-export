@@ -10,7 +10,7 @@ if (!defined('ABSPATH')) {
 class EM_ImpExpUpdates {
 
 	const TRANSIENT_UPDATE_INFO		= 'em_import_export_update_info';
-	const URL_UPDATE_INFO			= 'https://rawgit.com/webaware/events-manager-import-export/master/latest.json';
+	const URL_UPDATE_INFO			= 'https://raw.githubusercontent.com/wjochum/events-manager-import-export/master/latest.json';
 
 	function __construct() {
 		// check for plugin updates

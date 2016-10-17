@@ -1,6 +1,12 @@
-# Events Manager Import Export
+# Events Manager Import Export (Network mode)
 
 Basic import and export function for [Events Manager](https://wordpress.org/plugins/events-manager/).
+
+Forked version to fix issues related to network mode Wordpress Installation. 
+
+Original project(s) on github:
+-    https://github.com/asmartin/events-manager-import-export
+-    https://github.com/webaware/events-manager-import-export
 
 ## Example Import CSV
 
@@ -29,7 +35,7 @@ Below is an example row:
 "233","My Example Event","2016-06-16 11:00:00","2016-06-16 21:00:00","Y-m-d H:i:s","My Category 1,My Category 2","This is a description of the event.","The White House","1600 Pennsylvania Avenue","Washington","DC","20500","US","38.89761","-77.03673"
 ```
 
-## Note from author
+## Note from the original author
 
 Although I never officially released this plugin, it seems to have leaked out and become a part of quite a few websites. I figure that means I ought to get it up and onto [GitHub](https://github.com/webaware/events-manager-import-export) where people can find it and report bugs.
 
