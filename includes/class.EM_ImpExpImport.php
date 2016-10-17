@@ -176,6 +176,8 @@ class EM_ImpExpImport {
 									$location->location_longitude = $data['x-location_longitude'];
 									self::maybeSetCoordinates($location);
 									$location->save();
+									//force reload of locations
+									$this->locations = false; 									
 								}
 							}
 
