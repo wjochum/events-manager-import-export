@@ -261,7 +261,7 @@ class EM_ImpExpImport {
 										}
 
 										if ($cat) {
-											$eventcats->categories[$cat->id] = $cat;
+											$eventcats->terms[$cat->id] = $cat;
 										}
 									}
 									$eventcats->save();
@@ -541,7 +541,7 @@ class EM_ImpExpImport {
 							}
 
 							if ($cat) {
-								$eventcats->categories[$cat->id] = $cat;
+								$eventcats->terms[$cat->id] = $cat;
 							}
 						}
 						$eventcats->save();
