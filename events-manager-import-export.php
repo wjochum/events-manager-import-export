@@ -3,7 +3,7 @@
 Plugin Name: Events Manager Import Export (Network Support)
 Plugin URI: https://github.com/wjochum/events-manager-import-export
 Description: Import and Export function for Events Manager (Network Support)
-Version: 0.0.14
+Version: 0.0.15
 Author: WebAware, Wolfgang Jochum
 Author URI: http://webaware.com.au/
 */
