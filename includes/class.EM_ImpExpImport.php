@@ -480,21 +480,21 @@ class EM_ImpExpImport {
 				if ($sevent === FALSE) {
 					die("invalid start date for " . $data['summary'] . ": dtformat is $dtformat and start date is " . $data['dtstart']);
 				}
-				$event->start = $sevent->getTimestamp();
-				$event->event_start_date = date('Y-m-d', $event->start);
-				$event->event_start_time = date('H:i:s', $event->start);
+				$event->start()->setTimestamp($sevent->getTimestamp());
+				$event->event_start_date = date('Y-m-d', $event->start()->getTimestamp());
+				$event->event_start_time = date('H:i:s', $event->start()->getTimestamp());
 
 				# parse end time
 				$eevent = date_create_from_format($dtformat, $data['dtend']);
 				if ($eevent === FALSE) {
 					die("invalid end date for " . $data['summary'] . ": dtformat is $dtformat and end date is " . $data['dtend']);
 				}
-				$event->end = $eevent->getTimestamp();
-				$event->event_end_date = date('Y-m-d', $event->end);
-				$event->event_end_time = date('H:i:s', $event->end);
+				$event->end()->setTimestamp($eevent->getTimestamp());
+				$event->event_end_date = date('Y-m-d', $event->end()->getTimestamp());
+				$event->event_end_time = date('H:i:s', $event->end()->getTimestamp());
 
 				$event->event_date_modified = current_time('mysql');
-				$event->event_all_day = ($event->event_start_time === '00:00:00' && $event->event_end_time === '00:00:00') ? 1 : 0;
+				$event->event_all_day = ($sevent->format('H:i:s') === '00:00:00' && $eevent->format('H:i:s') === '00:00:00') ? 1 : 0;
 
 				foreach ($attrs as $attrName => $value) {
 					$event->event_attributes[$attrName] = $value;
