@@ -2,6 +2,10 @@
 
 ## Changelog
 
+### 0.0.16, 2020-10-17
+
+* fixed bug import failed to persist categories on events
+
 ### 0.0.15, 2019-02-10
 
 * fixed bug import failed to persist categories on events
