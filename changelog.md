@@ -4,7 +4,7 @@
 
 ### 0.0.16, 2020-10-17
 
-* fixed bug import failed to persist categories on events
+* fixed bug import failed to properly set start/end date due to changes in the Event object API in Event Manager 5.8+
 
 ### 0.0.15, 2019-02-10
 
